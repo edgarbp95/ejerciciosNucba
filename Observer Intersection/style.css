@@ -51,3 +51,11 @@ div{
 .caja5{
     opacity: 0;
 }
+
+@media screen and (max-width:600px) {
+    div{
+        width: 300px;
+        height: 300px;
+    }
+    
+}
