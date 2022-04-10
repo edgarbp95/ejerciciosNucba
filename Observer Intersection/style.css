@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    margin-top: 30px;
+}
+
+.caja{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:yellow;
+    font-size: 3rem;
+}
+
+
+@keyframes aparecer {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes desaparecer {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+.caja2{
+    opacity: 0;
+}
+
+.caja3{
+    opacity: 0;
+}
+
+.caja4{
+    opacity: 0;
+}
+
+.caja5{
+    opacity: 0;
+}
