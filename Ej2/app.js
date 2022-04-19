@@ -57,7 +57,7 @@ let pizzas = [
 ]
 
 const mostrarPrecio = id=>{
-    console.log(`El precio de la ${pizzas[id].nombre} es ${pizzas[id].precio}`)
+    console.log(`El precio de la ${pizzas[id].nombre} es $${pizzas[id].precio}`)
 }
 
 
@@ -72,7 +72,7 @@ for(let i=0;i<pizzas.length;i++){
     nombresPizzas.push(pizzas[i].nombre)
     
 
-    precioPizzas.push(pizzas[i].precio);
+    precioPizzas.push("$"+pizzas[i].precio);
    
     mostrarPrecio(i);
 }
