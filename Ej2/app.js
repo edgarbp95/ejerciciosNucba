@@ -1,3 +1,9 @@
+const nombre = document.getElementById("nombre");
+const precio = document.getElementById("precio");
+const numeroId = document.getElementById("numero-id");
+const botonBuscar = document.getElementById("buscar");
+
+
 let impares = [];
 let precioMenor = [];
 let nombresPizzas = [];
@@ -82,3 +88,21 @@ console.log(`Las pizzas ${precioMenor} cuestan menos de $600`);
 console.log(`Los nombres de todas las pizzas son: ${nombresPizzas}`);
 console.log(`Los precios de las pizzas son: ${precioPizzas}`)
 
+
+//EJERCICIO JS3 EDUFLOW
+
+botonBuscar.addEventListener("click",()=>{
+    let numeroIngresado = numeroId.value;
+    for(let pizza in pizzas){
+        if(pizzas[pizza].id == numeroIngresado){
+            nombre.innerHTML = pizzas[pizza].nombre;
+            precio.innerHTML = pizzas[pizza].precio;
+            nombre.style.color="black";
+            return;
+        } else {
+            nombre.innerHTML = "Pizza no encontrada";
+            nombre.style.color="red";
+        }
+    }
+    
+})
