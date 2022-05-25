@@ -102,6 +102,7 @@ botonBuscar.addEventListener("click",()=>{
         } else {
             nombre.innerHTML = "Pizza no encontrada";
             nombre.style.color="red";
+            precio.innerHTML = "";
         }
     }
     
