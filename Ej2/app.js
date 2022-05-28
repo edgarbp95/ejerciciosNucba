@@ -2,7 +2,9 @@ const nombre = document.getElementById("nombre");
 const precio = document.getElementById("precio");
 const numeroId = document.getElementById("numero-id");
 const botonBuscar = document.getElementById("buscar");
-
+const botonBuscarTodas = document.getElementById("buscar-todas");
+const botonBuscarEconomicas = document.getElementById("buscar-economicas");
+const containerCards = document.querySelector(".div_cards");
 
 let impares = [];
 let precioMenor = [];
@@ -103,7 +105,49 @@ botonBuscar.addEventListener("click",()=>{
             nombre.innerHTML = "Pizza no encontrada";
             nombre.style.color="red";
             precio.innerHTML = "";
+            containerCards.innerHTML = "";
         }
     }
     
 })
+
+const buscarEconomicas= ()=>{
+    containerCards.innerHTML="";
+    nombre.innerHTML = "";
+    for(let pizza in pizzas){
+        if(pizzas[pizza].precio < 600){
+            containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">${pizzas[pizza].nombre}</h5>
+                <p class="card-text">ID: ${pizzas[pizza].id}</p>
+                <p class="card-text">$${pizzas[pizza].precio}</p>
+                <a href="#" class="btn btn-primary">Ver Pizza</a>
+                </div>
+                </div>
+                </div>`;
+        } 
+    }
+}
+
+const buscarTodas = ()=>{
+    containerCards.innerHTML="";
+    nombre.innerHTML = "";
+    for(let pizza in pizzas){
+        containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${pizzas[pizza].nombre}</h5>
+          <p class="card-text">ID: ${pizzas[pizza].id}</p>
+          <p class="card-text">$${pizzas[pizza].precio}</p>
+          <a href="#" class="btn btn-primary">Ver Pizza</a>
+        </div>
+        </div>
+        </div>`;
+    }
+}
+
+botonBuscarTodas.addEventListener("click",buscarTodas);
+botonBuscarEconomicas.addEventListener("click",buscarEconomicas);
+
+
+
+
