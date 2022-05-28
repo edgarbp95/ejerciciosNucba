@@ -114,6 +114,7 @@ botonBuscar.addEventListener("click",()=>{
 const buscarEconomicas= ()=>{
     containerCards.innerHTML="";
     nombre.innerHTML = "";
+    precio.innerHTML = "";
     for(let pizza in pizzas){
         if(pizzas[pizza].precio < 600){
             containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
@@ -132,6 +133,7 @@ const buscarEconomicas= ()=>{
 const buscarTodas = ()=>{
     containerCards.innerHTML="";
     nombre.innerHTML = "";
+    precio.innerHTML = "";
     for(let pizza in pizzas){
         containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
         <div class="card-body">
