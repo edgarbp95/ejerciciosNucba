@@ -117,7 +117,6 @@ botonBuscar.addEventListener("click",()=>{
                 <h5 class="card-title">${pizzas[pizza].nombre}</h5>
                 <p class="card-text">ID: ${pizzas[pizza].id}</p>
                 <p class="card-text">$${pizzas[pizza].precio}</p>
-                <a href="#" class="btn btn-primary">Ver Pizza</a>
                 </div>
                 </div>
                 </div>`;
@@ -144,7 +143,6 @@ const buscarEconomicas= ()=>{
                 <h5 class="card-title">${pizzas[pizza].nombre}</h5>
                 <p class="card-text">ID: ${pizzas[pizza].id}</p>
                 <p class="card-text">$${pizzas[pizza].precio}</p>
-                <a href="#" class="btn btn-primary">Ver Pizza</a>
                 </div>
                 </div>
                 </div>`;
@@ -163,7 +161,6 @@ const buscarTodas = ()=>{
           <h5 class="card-title">${pizzas[pizza].nombre}</h5>
           <p class="card-text">ID: ${pizzas[pizza].id}</p>
           <p class="card-text">$${pizzas[pizza].precio}</p>
-          <a href="#" class="btn btn-primary">Ver Pizza</a>
         </div>
         </div>
         </div>`;
