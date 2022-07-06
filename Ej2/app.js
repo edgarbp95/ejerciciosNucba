@@ -1,9 +1,8 @@
-const nombre = document.getElementById("nombre");
-const precio = document.getElementById("precio");
+
 const numeroId = document.getElementById("numero-id");
 const botonBuscar = document.getElementById("buscar");
 const botonBuscarTodas = document.getElementById("buscar-todas");
-const botonBuscarEconomicas = document.getElementById("buscar-economicas");
+const botonBuscarPizza = document.getElementById("buscar-pizza");
 const containerCards = document.querySelector(".div_cards");
 
 let impares = [];
@@ -76,25 +75,25 @@ let pizzas = [
 localStorage.setItem("pizzas", JSON.stringify(pizzas));
 
 const mostrarPrecio = id=>{
-    console.log(`El precio de la ${pizzas[id].nombre} es $${pizzas[id].precio}`)
+   console.log(`El precio de la ${pizzas[id].nombre} es $${pizzas[id].precio}`)
 }
 
 
-for(let i=0;i<pizzas.length;i++){
-    if(pizzas[i].id%2!==0){
+ for(let i=0;i<pizzas.length;i++){
+     if(pizzas[i].id%2!==0){
         impares.push(pizzas[i].nombre);
-    }
+     }
     if(pizzas[i].precio<600){
-        precioMenor.push(pizzas[i].nombre); 
+        precioMenor.push(pizzas[i].nombre);
     }
 
     nombresPizzas.push(pizzas[i].nombre)
-    
 
-    precioPizzas.push("$"+pizzas[i].precio);
-   
-    mostrarPrecio(i);
-}
+
+     precioPizzas.push("$"+pizzas[i].precio);
+
+     mostrarPrecio(i);
+ }
 
 console.log("Las pizzas con id impar son: "+impares);
 console.log(`Las pizzas ${precioMenor} cuestan menos de $600`);
@@ -104,63 +103,65 @@ console.log(`Los precios de las pizzas son: ${precioPizzas}`)
 
 //EJERCICIO JS3 EDUFLOW
 
+
 botonBuscar.addEventListener("click",()=>{
     let numeroIngresado = numeroId.value;
     for(let pizza in pizzas){
         if(pizzas[pizza].id == numeroIngresado){
-            nombre.innerHTML = pizzas[pizza].nombre;
-            precio.innerHTML = pizzas[pizza].precio;
-            nombre.style.color="black";
             containerCards.innerHTML=`<div class="card" style="width: 18rem;">
                 <div class="card-body">
-                <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div> 
+                <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div>
                 <h5 class="card-title">${pizzas[pizza].nombre}</h5>
                 <p class="card-text">ID: ${pizzas[pizza].id}</p>
+                <p class="card-text"><span class="card-text font-medium">Ingredientes</span>: ${pizzas[pizza].ingredientes}</p>
                 <p class="card-text">$${pizzas[pizza].precio}</p>
                 </div>
                 </div>
                 </div>`;
             return;
-        } else {
-            nombre.innerHTML = "Pizza no encontrada";
-            nombre.style.color="red";
-            precio.innerHTML = "";
-            containerCards.innerHTML = "";
         }
     }
-    
+
 })
 
-const buscarEconomicas= ()=>{
+
+let estado = true;
+
+
+const buscarPizza= ()=>{
     containerCards.innerHTML="";
-    nombre.innerHTML = "";
-    precio.innerHTML = "";
+    let nombrePizza = numeroId.value;
+    nombrePizza = nombrePizza.charAt(0).toUpperCase() + nombrePizza.slice(1);
+    
     for(let pizza in pizzas){
-        if(pizzas[pizza].precio < 600){
+        if(pizzas[pizza].nombre.includes(nombrePizza) && nombrePizza!=""){
             containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
                 <div class="card-body">
-                <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div> 
+                <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div>
                 <h5 class="card-title">${pizzas[pizza].nombre}</h5>
                 <p class="card-text">ID: ${pizzas[pizza].id}</p>
+                <p class="card-text font-medium">Ingredientes: ${pizzas[pizza].ingredientes} </p>
                 <p class="card-text">$${pizzas[pizza].precio}</p>
                 </div>
                 </div>
                 </div>`;
-        } 
+        }
     }
 }
 
 const buscarTodas = ()=>{
     containerCards.innerHTML="";
-    nombre.innerHTML = "";
-    precio.innerHTML = "";
     for(let pizza in pizzas){
         containerCards.innerHTML+=`<div class="card" style="width: 18rem;">
         <div class="card-body">
-          <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div> 
+          <div class="imagen-pizza mb-2"> <img class="card-img-top" src=${pizzas[pizza].URL} alt=""></div>
           <h5 class="card-title">${pizzas[pizza].nombre}</h5>
           <p class="card-text">ID: ${pizzas[pizza].id}</p>
-          <p class="card-text">$${pizzas[pizza].precio}</p>
+          <div class="flex flex-col gap-0">
+          <p class="card-text font-medium">Ingredientes:</p>
+          <p class="card-text">${pizzas[pizza].ingredientes}</p>
+          </div>
+          <p class="card-text mt-4"> <span class="font-medium">Precio:</span> $${pizzas[pizza].precio}</p>
         </div>
         </div>
         </div>`;
@@ -168,7 +169,7 @@ const buscarTodas = ()=>{
 }
 
 botonBuscarTodas.addEventListener("click",buscarTodas);
-botonBuscarEconomicas.addEventListener("click",buscarEconomicas);
+botonBuscarPizza.addEventListener("click",buscarPizza);
 
 
 
