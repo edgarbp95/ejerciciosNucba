@@ -141,7 +141,7 @@ const buscarPizza= ()=>{
                 <h5 class="card-title">${pizzas[pizza].nombre}</h5>
                 <p class="card-text">ID: ${pizzas[pizza].id}</p>
                 <p class="card-text font-medium">Ingredientes: ${pizzas[pizza].ingredientes} </p>
-                <p class="card-text">$${pizzas[pizza].precio}</p>
+                <p class="card-text">Precio: $${pizzas[pizza].precio}</p>
                 </div>
                 </div>
                 </div>`;
